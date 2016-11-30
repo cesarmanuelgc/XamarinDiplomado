@@ -15,7 +15,7 @@ namespace XamarinDiplomadoCesarGonzalez.ViewModel
         public ObservableCollection<Customer> Customers { get; set; }
         private AzureServiceClient _client;
         public Command RefreshCommand { get; set; }
-        public Command GenerateCustomersCommand { get; set; }
+        public Command AddCustomer { get; set; }
         public Command CleanLocalDataCommand { get; set; }
         private bool isBusy;
         public bool IsBusy
@@ -28,7 +28,7 @@ namespace XamarinDiplomadoCesarGonzalez.ViewModel
         public CustomersVM()
         {
             RefreshCommand = new Command(() => Load());
-            GenerateCustomersCommand = new Command(() => generateCustomers());
+            AddCustomer = new Command(() => addCustomer());
             CleanLocalDataCommand = new Command(() => cleanLocalData());
             Customers = new ObservableCollection<Customer>();
             _client = new AzureServiceClient();
@@ -40,6 +40,10 @@ namespace XamarinDiplomadoCesarGonzalez.ViewModel
             await _client.CleanCustomersData();
         }
 
+        async void addCustomer()
+        {
+
+        }
 
         async void generateCustomers()
         {
